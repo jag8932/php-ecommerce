@@ -56,13 +56,17 @@ function loginUser($conn, $user, $password) {
     $checkPwd = password_verify($password, $pwdHashed);
 
     if ($checkPwd === false) {
-        header("Location:../login.php?login=incorrectpassword");
+        header("Location:../login.php?login=incorrectpassword&p=$pwdHashed");
         exit();
     } else if ($checkPwd === true) {
         session_start();
         $_SESSION["userid"] = $userExists["user_id"]; 
         $_SESSION["firstname"] = $userExists["user_first"]; 
-        $_SESSION["lastname"] = $userExists["user_id"]; 
+        $_SESSION["lastname"] = $userExists["user_id"];
+        $name = $_SESSION["firstname"];
+        header("Location:../header.php");
+        header("Location:../index.php?name=$name");
+        exit();
     }
 }
 
