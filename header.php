@@ -11,19 +11,14 @@
 <div id='navbar'>
 <nav>
     <a id='#logo' href='./index.php'>Home</a>
+    <div class='spacer'></div>
     <?php 
     session_start();
-    if (isset($_SESSION["firstname"])) { /*
-        if (isset($_SESSION["firstname"])) {
-            $name = $_SESSION["firstname"];
-            echo "<p>Welcome $name</p>";
-        }
-        else {
-            echo "<p>Can't find name</p>";
-        } */
-        echo "suck me" .$_SESSION["firstname"];
+    if (isset($_SESSION["firstname"])) { 
+        $name = $_SESSION["firstname"];
+        echo "<p id='welcome' style='white-space:nowrap;'>Welcome $name</p>"; 
     } else {
-        echo "<div class='spacer'>No Session</div>";
+        echo "<div class='spacer'></div>";
     }
     ?>
     <div class='spacer'></div>
