@@ -3,8 +3,9 @@
 ?>
 
 <div id='login-container'>
-    <h2>Login</h2>
+    
     <form class='inputForm' id='loginForm' method="post" action='./handler/login.php'>
+    <h2>Login</h2>
         <input type='text' name='uid' placeholder='Username or Email'><br>
         <input type='password' name='pwd' placeholder='Password'><br>
         <input type='password' name='pwdRepeat' placeholder='Repeat Password'><br>

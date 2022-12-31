@@ -28,7 +28,7 @@
     </form>
     <div class='spacer'></div>
     <div class='spacer'></div>
-    <a href='#temp'>My Products</a>
+    <a href="./create-product.php">Create Product</a>
     <a href='./signup.php'>Signup</a>
     <a href='./login.php'>Login</a>
 </nav>

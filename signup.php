@@ -4,6 +4,7 @@ include './header.php';
 ?>
 <div id="signupContainer">
 <form class="inputForm" id="signupform" action="./handler/signup.php" method="POST">
+<h2>Signup</h2>
     <?php
     // Check to see if the user already filled out parts of the form 
         if(isset($_GET['first'])) {
