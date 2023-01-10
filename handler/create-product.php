@@ -17,6 +17,24 @@ if (isset($_POST["submit"])) {
 
     $acceptedTypes = array('jpg', 'jpeg', 'png');
 
+    if (in_array($fileActualExt, $acceptedTypes)) {
+        if ($fileError === 0) {
+            if ($fileSize < 1000000) {
+                //gives the file a unique name so it doesn't conflict with files 
+                // of the same name
+                $uniqueName = uniqid('', true).".".$fileActualExt;
+                $fileDestination = '../uploads/'.$uniqueName;
+                move_uploaded_file($fileTmpName, $fileDestination);
+                createProduct($fileDestination);
+                header("Location: ../index.php?product-created");
+            }
+        } else {
+            echo "There was an error uploading your file.";
+        }
+    } else {
+        echo "Incorrect file type";
+    }
+
     $name = mysqli_real_escape_string($conn, $_POST['prodName']) ;
     $tags = mysqli_real_escape_string($conn, $_POST['tags']);
     $description = mysqli_real_escape_string($conn, $_POST['prodDesc']);
